@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tapeando</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="course_name_hint">Nombre del plato</string>
+    <string name="course_notes_hint">Escribe tus notas aquí</string>
+    <string name="course_description_hint">Descripción del plato</string>
     <string name="action_settings">Settings</string>
 </resources>
