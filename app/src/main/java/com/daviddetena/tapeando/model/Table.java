@@ -27,7 +27,7 @@ public class Table {
     public Table(int tableNumber) {
         mTableNumber = tableNumber;
         mCourses = new ArrayList<>();
-        mNotes = "Mesa sin platos";
+        mNotes = String.format("Mesa sin platos %d", tableNumber);
     }
 
     public int getTableNumber() {
