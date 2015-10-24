@@ -46,7 +46,8 @@ public class Table {
 
     @Override
     public String toString() {
-        return String.valueOf(getTableNumber()) + ": " + String.format("%.2f€", getBill());
+        return "Mesa " + String.format("%d",getTableNumber());
+        //return String.valueOf(getTableNumber()) + ": " + String.format("%.2f€", getBill());
     }
 
 
