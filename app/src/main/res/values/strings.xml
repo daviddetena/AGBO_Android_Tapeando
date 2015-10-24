@@ -5,4 +5,6 @@
     <string name="course_description_hint">Descripción del plato</string>
     <string name="action_settings">Settings</string>
     <string name="table_number_hint">Mesa X</string>
+    <string name="list_item_table_name">Mesa</string>
+    <string name="list_item_table_bill_hint">50€</string>
 </resources>

@@ -8,11 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daviddetena.tapeando.R;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -53,12 +56,39 @@ public class TableListFragment extends Fragment {
          */
         private class TableHolder extends RecyclerView.ViewHolder{
 
-            public TextView mTitleTextView;
+            private Table mTable;
 
+            private ImageView mTableIconImageView;
+            private TextView mTitleTextView;
+            private TextView mCourseCounterTextView;
+            private TextView mBillTextView;
+
+            /**
+             * Get references for UI widgets
+             * @param itemView
+             */
             public TableHolder(View itemView){
                 super(itemView);
 
-                mTitleTextView = (TextView)itemView;
+                // Reference for widgets
+                mTableIconImageView = (ImageView)itemView.findViewById(R.id.list_item_table_icon_image_view);
+                mTitleTextView = (TextView)itemView.findViewById(R.id.list_item_table_name_text_view);
+                mCourseCounterTextView = (TextView)itemView.findViewById(R.id.list_item_table_course_number_text_view);
+                mBillTextView = (TextView)itemView.findViewById(R.id.list_item_table_bill_text_view);
+            }
+
+            /**
+             * Set up UI widgets
+             * @param table
+             */
+            public void bindTable(Table table){
+                mTable = table;
+
+                // Wire up widgets
+                mTableIconImageView.setImageResource(R.drawable.icon_table);
+                mTitleTextView.setText(mTable.toString());
+                mCourseCounterTextView.setText(String.format("%d platos", mTable.getCourses().size()));
+                mBillTextView.setText(String.format("%.2f €", mTable.getBill()));
             }
         }
 
@@ -91,7 +121,7 @@ public class TableListFragment extends Fragment {
 
                 LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
                 View view = layoutInflater
-                                .inflate(android.R.layout.simple_list_item_1, parent, false);
+                                .inflate(R.layout.list_item_table, parent, false);
                 return new TableHolder(view);
             }
 
@@ -103,7 +133,9 @@ public class TableListFragment extends Fragment {
             @Override
             public void onBindViewHolder(TableHolder holder, int position) {
                 Table table = mTables.get(position);
-                holder.mTitleTextView.setText(table.toString());
+
+                // Call to the method to set up the UI
+                holder.bindTable(table);
             }
 
             @Override
