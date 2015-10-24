@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/table_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="26sp"
+        android:padding="20dp"
+        android:hint="@string/table_number_hint"/>
+    <!--
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20dp"
+        android:hint="@string/course_name_hint"/>
+
+
+    <TextView
+        android:id="@+id/course_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:hint="@string/course_description_hint"/>
+
+    <TextView
+        android:id="@+id/course_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:hint="10euros"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:contextClickable="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/course_notes"
+            android:background="@android:color/darker_gray"
+            android:editable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="@string/course_notes_hint"/>
+    </ScrollView>
+    -->
+
+
+</LinearLayout>

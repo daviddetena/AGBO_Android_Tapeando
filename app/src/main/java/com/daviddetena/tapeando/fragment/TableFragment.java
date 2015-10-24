@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.daviddetena.tapeando.R;
 import com.daviddetena.tapeando.model.Course;
 
-public class CourseFragment extends Fragment{
+public class TableFragment extends Fragment{
 
     // Model
     private Course mCourse;
@@ -34,8 +34,11 @@ public class CourseFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_course, container, false);
+        View view = inflater.inflate(R.layout.fragment_table, container, false);
 
+
+
+        /*
         // Wire up widgets
         mNameTextView = (TextView) view.findViewById(R.id.course_name);
         mDescriptionTextView = (TextView) view.findViewById(R.id.course_description);
@@ -65,7 +68,7 @@ public class CourseFragment extends Fragment{
                 mCourse.setNotes(mNotesTextView.getText().toString());
             }
         });
-
+        */
         return view;
     }
 }

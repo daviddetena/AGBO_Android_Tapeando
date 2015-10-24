@@ -1,5 +1,7 @@
 package com.daviddetena.tapeando.model;
 
+import java.util.List;
+
 public class Course {
 
     private int mId;
@@ -7,6 +9,7 @@ public class Course {
     private String mPhoto;
     private String mPhotoUrl;
     private String mDescription;
+    private List<Allergen> mAllergens;
     private float mPrice;
     private String mNotes;
 
@@ -17,15 +20,16 @@ public class Course {
         mDescription = "Descripción de ejemplo";
     }
 
-    public Course(String description, int id, String name, String notes, String photo,
-                  String photoUrl, float price) {
-        mDescription = description;
+    public Course(int id, String name, String photo, String photoUrl, String description,
+                  List<Allergen> allergens, float price, String notes) {
         mId = id;
         mName = name;
-        mNotes = notes;
         mPhoto = photo;
         mPhotoUrl = photoUrl;
+        mDescription = description;
+        mAllergens = allergens;
         mPrice = price;
+        mNotes = notes;
     }
 
     public String getDescription() {
@@ -82,5 +86,13 @@ public class Course {
 
     public void setPrice(float price) {
         mPrice = price;
+    }
+
+    public List<Allergen> getAllergens() {
+        return mAllergens;
+    }
+
+    public void setAllergens(List<Allergen> allergens) {
+        mAllergens = allergens;
     }
 }
