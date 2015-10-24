@@ -8,6 +8,7 @@ public class Table {
     // A table has a number and a list of courses
     private int mTableNumber;
     private List<Course> mCourses;
+    public String mNotes;
 
     /**
      * Full constructor
@@ -26,6 +27,7 @@ public class Table {
     public Table(int tableNumber) {
         mTableNumber = tableNumber;
         mCourses = new ArrayList<>();
+        mNotes = "Mesa sin platos";
     }
 
     public int getTableNumber() {
@@ -42,6 +44,14 @@ public class Table {
 
     public void setCourses(List<Course> courses) {
         mCourses = courses;
+    }
+
+    public String getNotes() {
+        return mNotes;
+    }
+
+    public void setNotes(String notes) {
+        mNotes = notes;
     }
 
     @Override

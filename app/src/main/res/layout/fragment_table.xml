@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
+    <EditText
         android:id="@+id/table_number"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="26sp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:padding="20dp"
         android:hint="@string/table_number_hint"/>
     <!--

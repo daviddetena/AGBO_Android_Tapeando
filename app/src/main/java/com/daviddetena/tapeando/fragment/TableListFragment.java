@@ -1,5 +1,6 @@
 package com.daviddetena.tapeando.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daviddetena.tapeando.R;
+import com.daviddetena.tapeando.activity.TableActivity;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
 
@@ -40,13 +42,29 @@ public class TableListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * In general, onResume() is the safest place to update a fragment's view
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         Tables tableList = Tables.getInstance(getActivity());
         List<Table> tables = tableList.getTables();
 
         // Init and set our adapter to the RecyclerView, with the model to display (tables)
-        mAdapter = new TableAdapter(tables);
-        mTableRecyclerView.setAdapter(mAdapter);
+        if(mAdapter == null){
+            // No adapter yet
+            mAdapter = new TableAdapter(tables);
+            mTableRecyclerView.setAdapter(mAdapter);
+        }
+        else{
+            // Adapter already existed. Notify it to refetch data
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -54,7 +72,7 @@ public class TableListFragment extends Fragment {
          * Inner class to hold the View for each row in the list of tables. Now the itemView is a
          * view inflated with the  layout
          */
-        private class TableHolder extends RecyclerView.ViewHolder{
+        private class TableHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
             private Table mTable;
 
@@ -69,6 +87,9 @@ public class TableListFragment extends Fragment {
              */
             public TableHolder(View itemView){
                 super(itemView);
+
+                // Self-assigned as the listener for click events on items
+                itemView.setOnClickListener(this);
 
                 // Reference for widgets
                 mTableIconImageView = (ImageView)itemView.findViewById(R.id.list_item_table_icon_image_view);
@@ -87,8 +108,19 @@ public class TableListFragment extends Fragment {
                 // Wire up widgets
                 mTableIconImageView.setImageResource(R.drawable.icon_table);
                 mTitleTextView.setText(mTable.toString());
-                mCourseCounterTextView.setText(String.format("%d platos", mTable.getCourses().size()));
+                //mCourseCounterTextView.setText(String.format("%d platos", mTable.getCourses().size()));
+                mCourseCounterTextView.setText(mTable.getNotes());
                 mBillTextView.setText(String.format("%.2f €", mTable.getBill()));
+            }
+
+            /**
+             * Response when user taps an item in the list => Display TableActivity via intent
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                Intent intent = TableActivity.newIntent(getActivity(), mTable.getTableNumber());
+                startActivity(intent);
             }
         }
 
