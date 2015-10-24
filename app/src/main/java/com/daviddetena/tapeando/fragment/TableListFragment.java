@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.daviddetena.tapeando.R;
 import com.daviddetena.tapeando.activity.TableActivity;
+import com.daviddetena.tapeando.activity.TablePagerActivity;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
 
@@ -63,6 +64,7 @@ public class TableListFragment extends Fragment {
         }
         else{
             // Adapter already existed. Notify it to refetch data
+            // TODO: adapt to refresh only the item updated
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -114,12 +116,12 @@ public class TableListFragment extends Fragment {
             }
 
             /**
-             * Response when user taps an item in the list => Display TableActivity via intent
+             * Response when user taps an item in the list => Display TablePagerActivity via intent
              * @param v
              */
             @Override
             public void onClick(View v) {
-                Intent intent = TableActivity.newIntent(getActivity(), mTable.getTableNumber());
+                Intent intent = TablePagerActivity.newIntent(getActivity(), mTable.getTableNumber());
                 startActivity(intent);
             }
         }
