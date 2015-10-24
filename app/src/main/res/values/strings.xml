@@ -7,4 +7,5 @@
     <string name="table_number_hint">Mesa X</string>
     <string name="list_item_table_name">Mesa</string>
     <string name="list_item_table_bill_hint">50€</string>
+    <string name="fragment_course_name_hint">Nombre del plato</string>
 </resources>

@@ -5,6 +5,7 @@ import java.util.List;
 public class Course {
 
     private int mId;
+    private int mTableNumber;
     private String mName;
     private String mPhoto;
     private String mPhotoUrl;
@@ -20,9 +21,18 @@ public class Course {
         mDescription = "Descripción de ejemplo";
     }
 
-    public Course(int id, String name, String photo, String photoUrl, String description,
+    public Course(int id, int tableNumber, String name, float price, String notes){
+        mId = id;
+        mTableNumber = tableNumber;
+        mName = name;
+        mPrice = price;
+        mNotes = notes;
+    }
+
+    public Course(int id, int tableNumber, String name, String photo, String photoUrl, String description,
                   List<Allergen> allergens, float price, String notes) {
         mId = id;
+        mTableNumber = tableNumber;
         mName = name;
         mPhoto = photo;
         mPhotoUrl = photoUrl;
@@ -46,6 +56,14 @@ public class Course {
 
     public void setId(int id) {
         mId = id;
+    }
+
+    public int getTableNumber() {
+        return mTableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        mTableNumber = tableNumber;
     }
 
     public String getName() {

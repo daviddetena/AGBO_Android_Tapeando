@@ -31,7 +31,7 @@ public class Tables {
     private Tables(Context context){
         mTables = new ArrayList<>();
         // Dummy data: 12 tables
-        for(int i=1; i<=12; i++){
+        for(int i=0; i<=11; i++){
             mTables.add(new Table(i));
         }
         //Collections.sort(mTables);

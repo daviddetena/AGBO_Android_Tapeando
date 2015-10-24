@@ -73,7 +73,7 @@ public class TableListFragment extends Fragment {
     }
 
 
-    /**
+        /**
          * Inner class to hold the View for each row in the list of tables. Now the itemView is a
          * view inflated with the  layout
          */

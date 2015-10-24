@@ -1,0 +1,61 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <ImageView
+        android:id="@+id/list_item_table_course_icon_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/list_item_table_course_allergens_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_dark"
+        android:padding="12dp"
+        android:hint="Alerg"/>
+
+    <TextView
+        android:id="@+id/list_item_table_course_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/list_item_table_course_icon_image_view"
+        android:layout_toEndOf="@id/list_item_table_course_icon_image_view"
+        android:layout_toLeftOf="@id/list_item_table_course_allergens_text_view"
+        android:layout_toStartOf="@id/list_item_table_course_allergens_text_view"
+        android:paddingTop="12dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="0dp"
+        android:textColor="@android:color/black"
+        android:hint="Nombre del plato"/>
+
+    <TextView
+        android:id="@+id/list_item_table_course_price_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list_item_table_course_name_text_view"
+        android:layout_toLeftOf="@id/list_item_table_course_allergens_text_view"
+        android:layout_toStartOf="@id/list_item_table_course_allergens_text_view"
+        android:layout_toRightOf="@id/list_item_table_course_icon_image_view"
+        android:layout_toEndOf="@id/list_item_table_course_icon_image_view"
+        android:textSize="14sp"
+        android:hint="Precio del plato"/>
+
+
+
+</RelativeLayout>

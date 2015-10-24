@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
+
+
 
     <EditText
         android:id="@+id/table_number"
@@ -12,7 +13,20 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="20dp"
-        android:hint="@string/table_number_hint"/>
+        android:hint="@string/table_number_hint"
+    />
+
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/table_courses_recycler_view"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+    </android.support.v7.widget.RecyclerView>
+
+
+
     <!--
     <TextView
         android:id="@+id/course_name"
