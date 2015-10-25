@@ -12,21 +12,19 @@ public class Menu {
 
     /**
      * Static method to get the singleton of Menu
-     * @param context
      * @return
      */
-    public static Menu getInstance(Context context){
+    public static Menu getInstance(){
         if(sInstance == null){
-            sInstance = new Menu(context);
+            sInstance = new Menu();
         }
         return sInstance;
     }
 
     /**
      * Private constructor to hold the singleton. Init the list of courses
-     * @param context
      */
-    private Menu(Context context){
+    private Menu(){
         mCourses = new ArrayList<>();
     }
 
