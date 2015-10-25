@@ -12,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import com.daviddetena.tapeando.R;
 import com.daviddetena.tapeando.fragment.CourseFragment;
 import com.daviddetena.tapeando.model.Course;
-import com.daviddetena.tapeando.model.Courses;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
 

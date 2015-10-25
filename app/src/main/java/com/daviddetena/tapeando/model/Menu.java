@@ -5,19 +5,19 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Courses {
+public class Menu {
 
-    private static Courses sInstance;       // Singleton with list of courses
+    private static Menu sInstance;          // Singleton with list of courses
     private List<Course> mCourses;          // list of courses
 
     /**
-     * Static method to get the singleton of Courses
+     * Static method to get the singleton of Menu
      * @param context
      * @return
      */
-    public static Courses getInstance(Context context){
+    public static Menu getInstance(Context context){
         if(sInstance == null){
-            sInstance = new Courses(context);
+            sInstance = new Menu(context);
         }
         return sInstance;
     }
@@ -26,7 +26,7 @@ public class Courses {
      * Private constructor to hold the singleton. Init the list of courses
      * @param context
      */
-    private Courses(Context context){
+    private Menu(Context context){
         mCourses = new ArrayList<>();
     }
 
