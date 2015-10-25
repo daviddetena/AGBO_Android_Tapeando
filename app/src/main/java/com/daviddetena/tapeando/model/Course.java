@@ -1,10 +1,14 @@
 package com.daviddetena.tapeando.model;
 
+import com.daviddetena.tapeando.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
 
     private int mId;
+    private int mTableNumber;
     private String mName;
     private String mPhoto;
     private String mPhotoUrl;
@@ -20,9 +24,41 @@ public class Course {
         mDescription = "Descripción de ejemplo";
     }
 
-    public Course(int id, String name, String photo, String photoUrl, String description,
+    public Course(int id, int tableNumber, String name, float price, String notes){
+        mId = id;
+        mTableNumber = tableNumber;
+        mName = name;
+        mPrice = price;
+        mNotes = notes;
+        setDummyAllergens();
+    }
+
+    private void setDummyAllergens() {
+
+        Allergen frutosSecos = new Allergen("frutos_secos", "Frutos Secos");
+        Allergen mostaza = new Allergen("mostaza", "Mostaza");
+        Allergen gluten = new Allergen("gluten", "Gluten");
+        Allergen pescado = new Allergen("pescado", "Pescado");
+        Allergen marisco = new Allergen("marisco", "Marisco");
+        Allergen huevo = new Allergen("huevo", "Huevo");
+        Allergen lactosa = new Allergen("lactosa", "Lactosa");
+
+        List<Allergen> allergens = new ArrayList<>();
+        allergens.add(frutosSecos);
+        allergens.add(mostaza);
+        allergens.add(gluten);
+        allergens.add(pescado);
+        allergens.add(marisco);
+        allergens.add(huevo);
+        allergens.add(lactosa);
+
+        setAllergens(allergens);
+    }
+
+    public Course(int id, int tableNumber, String name, String photo, String photoUrl, String description,
                   List<Allergen> allergens, float price, String notes) {
         mId = id;
+        mTableNumber = tableNumber;
         mName = name;
         mPhoto = photo;
         mPhotoUrl = photoUrl;
@@ -46,6 +82,14 @@ public class Course {
 
     public void setId(int id) {
         mId = id;
+    }
+
+    public int getTableNumber() {
+        return mTableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        mTableNumber = tableNumber;
     }
 
     public String getName() {
@@ -94,5 +138,16 @@ public class Course {
 
     public void setAllergens(List<Allergen> allergens) {
         mAllergens = allergens;
+    }
+
+    public String getAllergensString(){
+        String result = "";
+        if (mAllergens.size() > 0){
+            for (Allergen allergen : mAllergens) {
+                result = result + allergen.getName() + ", ";
+            }
+            return result.substring(0, result.length() - 2);
+        }
+        return result;
     }
 }

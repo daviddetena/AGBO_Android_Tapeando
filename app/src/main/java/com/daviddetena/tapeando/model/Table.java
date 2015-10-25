@@ -27,7 +27,13 @@ public class Table {
     public Table(int tableNumber) {
         mTableNumber = tableNumber;
         mCourses = new ArrayList<>();
-        mNotes = String.format("Mesa sin platos %d", tableNumber);
+        for(int i=0; i<5; i++){
+            String name = String.format("Plato %d de la mesa %d", i, tableNumber);
+            float price = 1 + (int)(Math.random() * ((1 + 50) - 1));
+            String notes = String.format("Notas para el plato %d de la mesa %d", i, tableNumber);
+            mCourses.add(new Course(i, tableNumber, name, price, notes));
+        }
+        mNotes = String.format("Mesa %d con %d platos", tableNumber ,getCourses().size());
     }
 
     public int getTableNumber() {

@@ -7,4 +7,20 @@
     <string name="table_number_hint">Mesa X</string>
     <string name="list_item_table_name">Mesa</string>
     <string name="list_item_table_bill_hint">50€</string>
+    <string name="fragment_course_name_hint">Nombre del plato</string>
+    <string name="fragment_course_allergens_string_hint">Listado de alérgenos</string>
+    <string name="fragment_course_description_label_text_view">Descripción</string>
+    <string name="fragment_course_allergens_label_text_view">Alérgenos</string>
+    <string name="fragment_course_description_hint">Descripción del plato</string>
+    <string name="fragment_course_price_label_text_view">Precio</string>
+    <string name="fragment_course_price_hint">Precio del plato</string>
+    <string name="fragment_course_notes_label_text_view">Notas</string>
+    <string name="course_no_allergens">Sin alérgenos</string>
+    <string name="course_has_peanuts">Contiene frutos secos</string>
+    <string name="course_has_milk">Contiene lactosa</string>
+    <string name="course_has_fish">Contiene pescado</string>
+    <string name="course_has_egg">Contiene huevo</string>
+    <string name="course_has_mustard">Contiene mostaza</string>
+    <string name="course_has_gluten">Contiene gluten</string>
+    <string name="course_has_shellfish">Contiene marisco</string>
 </resources>

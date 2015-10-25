@@ -24,9 +24,7 @@ public class TableListFragment extends Fragment {
     // RecyclerView and adapter for it
     private RecyclerView mTableRecyclerView;
     private TableAdapter mAdapter;
-
-    // Uncomment if only the selected table is needed to be refreshed
-    //private int tableSelectedIndex;
+    private int tableSelectedIndex;
 
     @Nullable
     @Override
@@ -65,9 +63,8 @@ public class TableListFragment extends Fragment {
         }
         else{
             // Adapter already existed. Notify it to refetch data
+            // TODO: adapt to refresh only the item updated
             mAdapter.notifyDataSetChanged();
-
-            // Uncomment if only the selected table is needed to be refreshed
             //mAdapter.notifyItemChanged(tableSelectedIndex);
         }
     }
@@ -124,9 +121,8 @@ public class TableListFragment extends Fragment {
              */
             @Override
             public void onClick(View v) {
-                // Uncomment if only the selected table is needed to be refreshed
-                // tableSelectedIndex = mTableRecyclerView.getChildAdapterPosition(v);
-
+                // Save current selected index
+                tableSelectedIndex = mTableRecyclerView.getChildAdapterPosition(v);
                 Intent intent = TablePagerActivity.newIntent(getActivity(), mTable.getTableNumber());
                 startActivity(intent);
             }
