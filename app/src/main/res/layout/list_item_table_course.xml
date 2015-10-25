@@ -8,25 +8,27 @@
 
     <ImageView
         android:id="@+id/list_item_table_course_icon_image_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginRight="10dp"/>
 
     <TextView
-        android:id="@+id/list_item_table_course_allergens_text_view"
+        android:id="@+id/list_item_table_course_price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         android:textColor="@android:color/holo_blue_dark"
-        android:padding="12dp"
-        android:hint="Alerg"/>
+        android:paddingTop="4dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:hint="Precio"/>
+
 
     <TextView
         android:id="@+id/list_item_table_course_name_text_view"
@@ -35,26 +37,78 @@
         android:textSize="20sp"
         android:layout_toRightOf="@id/list_item_table_course_icon_image_view"
         android:layout_toEndOf="@id/list_item_table_course_icon_image_view"
-        android:layout_toLeftOf="@id/list_item_table_course_allergens_text_view"
-        android:layout_toStartOf="@id/list_item_table_course_allergens_text_view"
-        android:paddingTop="12dp"
-        android:paddingRight="10dp"
-        android:paddingEnd="10dp"
+        android:layout_toLeftOf="@id/list_item_table_course_price_text_view"
+        android:layout_toStartOf="@id/list_item_table_course_price_text_view"
+        android:paddingTop="3dp"
+        android:paddingRight="6dp"
+        android:paddingEnd="6dp"
         android:paddingBottom="0dp"
         android:textColor="@android:color/black"
         android:hint="Nombre del plato"/>
 
-    <TextView
-        android:id="@+id/list_item_table_course_price_text_view"
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/list_item_table_course_name_text_view"
-        android:layout_toLeftOf="@id/list_item_table_course_allergens_text_view"
-        android:layout_toStartOf="@id/list_item_table_course_allergens_text_view"
+        android:layout_toLeftOf="@id/list_item_table_course_price_text_view"
+        android:layout_toStartOf="@id/list_item_table_course_price_text_view"
         android:layout_toRightOf="@id/list_item_table_course_icon_image_view"
         android:layout_toEndOf="@id/list_item_table_course_icon_image_view"
-        android:textSize="14sp"
-        android:hint="Precio del plato"/>
+        android:layout_marginTop="2dp">
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_peanuts"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_peanuts"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_mustard"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_mustard"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_gluten"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_gluten"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_fish"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_fish"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_shellfish"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_shellfish"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_egg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="3dp"
+            android:contentDescription="@string/course_has_egg"/>
+
+        <ImageView
+            android:id="@+id/list_item_table_course_has_milk"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/course_has_milk"/>
+
+    </LinearLayout>
+
+
 
 
 

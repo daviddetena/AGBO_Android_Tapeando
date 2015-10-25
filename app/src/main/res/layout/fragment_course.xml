@@ -16,12 +16,14 @@
         android:paddingBottom="10dp"
         android:background="#ffdddddd"
         android:textSize="22sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:hint="@string/fragment_course_name_hint"/>
 
     <ImageView
         android:id="@+id/fragment_course_photo_image_view"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -34,7 +36,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffdddddd"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_marginTop="5dp">
 
         <LinearLayout
@@ -49,8 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="0dp"
                 style="?android:listSeparatorTextViewStyle"
                 android:text="@string/fragment_course_description_label_text_view"/>
 
@@ -59,8 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
                 android:hint="@string/fragment_course_description_hint"/>
 
             <TextView
@@ -68,9 +69,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="0dp"
+                android:layout_marginTop="15dp"
                 style="?android:listSeparatorTextViewStyle"
                 android:text="@string/fragment_course_allergens_label_text_view"/>
 
@@ -79,52 +79,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
                 android:hint="@string/fragment_course_allergens_string_hint"/>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/fragment_course_has_peanuts"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_peanuts"/>
 
                 <ImageView
                     android:id="@+id/fragment_course_has_mustard"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_mustard"/>
 
                 <ImageView
                     android:id="@+id/fragment_course_has_gluten"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_gluten"/>
 
                 <ImageView
                     android:id="@+id/fragment_course_has_fish"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_fish"/>
 
                 <ImageView
                     android:id="@+id/fragment_course_has_shellfish"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_shellfish"/>
 
                 <ImageView
                     android:id="@+id/fragment_course_has_egg"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
                     android:contentDescription="@string/course_has_egg"/>
 
                 <ImageView
@@ -140,9 +143,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="5dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="0dp"
+                android:layout_marginTop="15dp"
                 style="?android:listSeparatorTextViewStyle"
                 android:text="@string/fragment_course_price_label_text_view"/>
 
@@ -151,8 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
                 android:hint="@string/fragment_course_price_hint"
                 />
 
@@ -161,22 +162,18 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:paddingTop="4dp"
-                android:background="#ffdddddd"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="0dp"
+                android:layout_marginTop="15dp"
                 style="?android:listSeparatorTextViewStyle"
                 android:text="@string/fragment_course_notes_label_text_view"/>
 
             <EditText
                 android:id="@+id/fragment_course_notes_edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:background="#ffdddddd"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"/>
+                android:layout_marginTop="5dp"
+                />
 
         </LinearLayout>
 

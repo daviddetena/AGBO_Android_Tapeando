@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.daviddetena.tapeando.R;
 import com.daviddetena.tapeando.activity.TableCoursePagerActivity;
+import com.daviddetena.tapeando.model.Allergen;
 import com.daviddetena.tapeando.model.Course;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
@@ -145,8 +146,14 @@ public class TableFragment extends Fragment{
         // UI widgets
         private ImageView mCoursePhotoImageView;
         private TextView mNameTextView;
+        private ImageView mIconPeanutsImageView;
+        private ImageView mIconMustardImageView;
+        private ImageView mIconGlutenImageView;
+        private ImageView mIconFishImageView;
+        private ImageView mIconShellfishImageView;
+        private ImageView mIconEggImageView;
+        private ImageView mIconMilkImageView;
         private TextView mPriceTextView;
-        private TextView mAllergensTextView;
 
 
         /**
@@ -164,7 +171,13 @@ public class TableFragment extends Fragment{
             mCoursePhotoImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_icon_image_view);
             mNameTextView = (TextView)itemView.findViewById(R.id.list_item_table_course_name_text_view);
             mPriceTextView = (TextView)itemView.findViewById(R.id.list_item_table_course_price_text_view);
-            mAllergensTextView = (TextView)itemView.findViewById(R.id.list_item_table_course_allergens_text_view);
+            mIconPeanutsImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_peanuts);
+            mIconMustardImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_mustard);
+            mIconGlutenImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_gluten);
+            mIconFishImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_fish);
+            mIconShellfishImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_shellfish);
+            mIconEggImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_egg);
+            mIconMilkImageView = (ImageView)itemView.findViewById(R.id.list_item_table_course_has_milk);
         }
 
         /**
@@ -178,7 +191,40 @@ public class TableFragment extends Fragment{
             mCoursePhotoImageView.setImageResource(R.drawable.icon_plates);
             mNameTextView.setText(mCourse.getName());
             mPriceTextView.setText(String.format("%.2f €", mCourse.getPrice()));
-            mAllergensTextView.setText(String.format("%.2f €", mCourse.getPrice()));
+
+            if(mCourse.getAllergens().size()>0){
+                for (Allergen allergen:mCourse.getAllergens()) {
+                    switch (allergen.getName()){
+                        case "Frutos Secos":
+                            mIconPeanutsImageView.setImageResource(R.drawable.frutos_secos);
+                            break;
+
+                        case "Mostaza":
+                            mIconMustardImageView.setImageResource(R.drawable.mostaza);
+                            break;
+
+                        case "Gluten":
+                            mIconGlutenImageView.setImageResource(R.drawable.gluten);
+                            break;
+
+                        case "Pescado":
+                            mIconFishImageView.setImageResource(R.drawable.pescado);
+                            break;
+
+                        case "Marisco":
+                            mIconShellfishImageView.setImageResource(R.drawable.marisco);
+                            break;
+
+                        case "Huevo":
+                            mIconEggImageView.setImageResource(R.drawable.huevo);
+                            break;
+
+                        case "Lactosa":
+                            mIconMilkImageView.setImageResource(R.drawable.lactosa);
+                            break;
+                    }
+                }
+            }
         }
 
 
@@ -186,7 +232,7 @@ public class TableFragment extends Fragment{
         public void onClick(View v) {
             // Start TableCoursePagerActivity
             Intent intent = TableCoursePagerActivity
-                    .newIntent(getActivity(), mCourse.getTableNumber() , mCourse.getId());
+                    .newIntent(getActivity(), mCourse.getTableNumber(), mCourse.getId());
             startActivity(intent);
         }
     }
