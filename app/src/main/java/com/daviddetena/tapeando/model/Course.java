@@ -1,5 +1,8 @@
 package com.daviddetena.tapeando.model;
 
+import com.daviddetena.tapeando.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
@@ -27,6 +30,29 @@ public class Course {
         mName = name;
         mPrice = price;
         mNotes = notes;
+        setDummyAllergens();
+    }
+
+    private void setDummyAllergens() {
+
+        Allergen frutosSecos = new Allergen("frutos_secos", "Frutos Secos");
+        Allergen mostaza = new Allergen("mostaza", "Mostaza");
+        Allergen gluten = new Allergen("gluten", "Gluten");
+        Allergen pescado = new Allergen("pescado", "Pescado");
+        Allergen marisco = new Allergen("marisco", "Marisco");
+        Allergen huevo = new Allergen("huevo", "Huevo");
+        Allergen lactosa = new Allergen("lactosa", "Lactosa");
+
+        List<Allergen> allergens = new ArrayList<>();
+        allergens.add(frutosSecos);
+        allergens.add(mostaza);
+        allergens.add(gluten);
+        allergens.add(pescado);
+        allergens.add(marisco);
+        allergens.add(huevo);
+        allergens.add(lactosa);
+
+        setAllergens(allergens);
     }
 
     public Course(int id, int tableNumber, String name, String photo, String photoUrl, String description,
@@ -112,5 +138,16 @@ public class Course {
 
     public void setAllergens(List<Allergen> allergens) {
         mAllergens = allergens;
+    }
+
+    public String getAllergensString(){
+        String result = "";
+        if (mAllergens.size() > 0){
+            for (Allergen allergen : mAllergens) {
+                result = result + allergen.getName() + ", ";
+            }
+            return result.substring(0, result.length() - 2);
+        }
+        return result;
     }
 }

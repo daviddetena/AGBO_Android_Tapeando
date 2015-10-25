@@ -15,9 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daviddetena.tapeando.R;
+import com.daviddetena.tapeando.model.Allergen;
 import com.daviddetena.tapeando.model.Course;
 import com.daviddetena.tapeando.model.Table;
 import com.daviddetena.tapeando.model.Tables;
+
+import java.util.List;
 
 public class CourseFragment extends Fragment{
 
@@ -29,12 +32,19 @@ public class CourseFragment extends Fragment{
     private Course mCourse;
 
     // UI Widgets
-    private ImageView mPhotoImageView;
     private TextView mNameTextView;
-    private TextView mPriceTextView;
+    private ImageView mPhotoImageView;
     private TextView mAllergensTextView;
+    private TextView mPriceTextView;
     private TextView mDescriptionTextView;
     private EditText mNotesTextView;
+    private ImageView mIconPeanutsImageView;
+    private ImageView mIconMustardImageView;
+    private ImageView mIconGlutenImageView;
+    private ImageView mIconFishImageView;
+    private ImageView mIconShellfishImageView;
+    private ImageView mIconEggImageView;
+    private ImageView mIconMilkImageView;
 
 
     public static CourseFragment newInstance(int tableNumber, int courseId){
@@ -91,12 +101,23 @@ public class CourseFragment extends Fragment{
         mNameTextView = (TextView)view.findViewById(R.id.fragment_course_name_text_view);
         mPhotoImageView = (ImageView)view.findViewById(R.id.fragment_course_photo_image_view);
         mAllergensTextView = (TextView)view.findViewById(R.id.fragment_course_allergens_text_view);
+
+        mIconPeanutsImageView = (ImageView)view.findViewById(R.id.fragment_course_has_peanuts);
+        mIconMustardImageView = (ImageView)view.findViewById(R.id.fragment_course_has_mustard);
+        mIconGlutenImageView = (ImageView)view.findViewById(R.id.fragment_course_has_gluten);
+        mIconFishImageView = (ImageView)view.findViewById(R.id.fragment_course_has_fish);
+        mIconShellfishImageView = (ImageView)view.findViewById(R.id.fragment_course_has_shellfish);
+        mIconEggImageView = (ImageView)view.findViewById(R.id.fragment_course_has_egg);
+        mIconMilkImageView = (ImageView)view.findViewById(R.id.fragment_course_has_milk);
+
+
+        // Set up
+        setAllergenIcons();
         mPriceTextView = (TextView)view.findViewById(R.id.fragment_course_price_text_view);
         mDescriptionTextView = (TextView)view.findViewById(R.id.fragment_course_description_text_view);
-        mNotesTextView = (EditText)view.findViewById(R.id.fragment_course_notes_text_view);
-
+        mNotesTextView = (EditText)view.findViewById(R.id.fragment_course_notes_edit_text);
         mNameTextView.setText(mCourse.getName());
-        mAllergensTextView.setText(String.format("%.2f", mCourse.getPrice()));
+        mAllergensTextView.setText(mCourse.getAllergensString());
         mPriceTextView.setText(String.format("%.2f", mCourse.getPrice()));
         mDescriptionTextView.setText(mCourse.getDescription());
 
@@ -127,5 +148,44 @@ public class CourseFragment extends Fragment{
         });
 
         return view;
+    }
+
+    /**
+     * Wire allergens icons up
+     */
+    private void setAllergenIcons(){
+        if(mCourse.getAllergens().size()>0){
+            for (Allergen allergen:mCourse.getAllergens()) {
+                switch (allergen.getName()){
+                    case "Frutos Secos":
+                        mIconPeanutsImageView.setImageResource(R.drawable.frutos_secos);
+                        break;
+
+                    case "Mostaza":
+                        mIconMustardImageView.setImageResource(R.drawable.mostaza);
+                        break;
+
+                    case "Gluten":
+                        mIconGlutenImageView.setImageResource(R.drawable.gluten);
+                        break;
+
+                    case "Pescado":
+                        mIconFishImageView.setImageResource(R.drawable.pescado);
+                        break;
+
+                    case "Marisco":
+                        mIconShellfishImageView.setImageResource(R.drawable.marisco);
+                        break;
+
+                    case "Huevo":
+                        mIconEggImageView.setImageResource(R.drawable.huevo);
+                        break;
+
+                    case "Lactosa":
+                        mIconMilkImageView.setImageResource(R.drawable.lactosa);
+                        break;
+                }
+            }
+        }
     }
 }
